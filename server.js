@@ -11,13 +11,13 @@ process.on('uncaughtException', error => {
 
 const app = require('./app');
 
-const DB = process.env.MONGO_INITDB_LOCAL_URI;
+const DB = process.env.MONGO_DB_URI;
 
 mongoose
     .connect(DB, {
         authSource: "admin",
-        user: "root",
-        pass: "root",
+        user: `${process.env.MONGO_DB_USER}`,
+        pass: `${process.env.MONGO_DB_PASS}`,
         useNewUrlParser: true
     })
     .then(() => console.log('DB connection successful!'));
