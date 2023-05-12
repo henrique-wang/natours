@@ -3,6 +3,7 @@ const AppError = require('../error/app-error');
 const Booking = require('../models/bookingModel');
 const axios = require('axios');
 
+// TODO: refactor calls to banckend. Detach frontend from backend
 const getHomePage = async (req, res, next) => {
     try {
         // Get all tours

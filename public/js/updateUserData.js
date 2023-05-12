@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
+// TODO: refactor calls to banckend. Detach frontend from backend
 export const updateUserData = async (data) => {
     console.log(`photo: ${photo}`);
     try {
         const res = await axios({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3001/api/v1/users/update-logged-user',
+            url: '/api/v1/users/update-logged-user',
             data
         });
         if ((res.data.status === 'success')) {
@@ -22,7 +23,7 @@ export const updateUserPassword = async (currentPassword, newPassword, newPasswo
     try {
         const res = await axios({
             method: 'PATCH',
-            url: 'http://127.0.0.1:3001/api/v1/users/update-password',
+            url: '/api/v1/users/update-password',
             data: {
                 currentPassword,
                 password: newPassword,
