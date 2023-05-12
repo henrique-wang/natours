@@ -5,16 +5,17 @@ const fs = require('fs');
 const Tour = require('../../models/tourModel');
 const Review = require('../../models/reviewModel');
 const User = require('../../models/userModel');
+const Booking = require('../../models/bookingModel');
 
 dotenv.config({ path: './config.env' });
 
-const DB = process.env.MONGO_INITDB_LOCAL_URI;
+const DB = process.env.MONGO_DB_URI;
 
 mongoose
     .connect(DB, {
         authSource: "admin",
-        user: "root",
-        pass: "root",
+        user: `${process.env.MONGO_DB_USER}`,
+        pass: `${process.env.MONGO_DB_PASS}`,
         useNewUrlParser: true
     })
     .then(() => console.log('DB connection successful!'));
@@ -25,11 +26,11 @@ const reviewsDev = JSON.parse(fs.readFileSync(`${__dirname}/reviews.json`, 'utf-
 const usersDev = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 
 // Import data
-const importData = async (collections) => {
+const importData = async (documents) => {
     try {
-        if (collections.includes('tour') || collections.length === 0) await Tour.create(toursDev);
-        if (collections.includes('review') || collections.length === 0) await Review.create(reviewsDev);
-        if (collections.includes('user') || collections.length === 0) await User.create(usersDev, { validateBeforeSave: false });
+        if (documents.includes('tour') || documents.length === 0) await Tour.create(toursDev);
+        if (documents.includes('review') || documents.length === 0) await Review.create(reviewsDev);
+        if (documents.includes('user') || documents.length === 0) await User.create(usersDev, { validateBeforeSave: false });
         console.log('Dev data was imported!!!');
     } catch (error) {
         console.log(error);
@@ -39,11 +40,12 @@ const importData = async (collections) => {
 }
 
 // Delete data
-const deleteData = async (collections) => {
+const deleteData = async (documents) => {
     try {
-        if (collections.includes('tour') || collections.length === 0) await Tour.deleteMany();
-        if (collections.includes('review') || collections.length === 0) await Review.deleteMany();
-        if (collections.includes('user') || collections.length === 0) await User.deleteMany();
+        if (documents.includes('tour') || documents.length === 0) await Tour.deleteMany();
+        if (documents.includes('review') || documents.length === 0) await Review.deleteMany();
+        if (documents.includes('user') || documents.length === 0) await User.deleteMany();
+        if (documents.includes('booking') || documents.length === 0) await Booking.deleteMany();
         console.log('Dev data was imported!!!');
     } catch (error) {
         console.log(error);
@@ -55,17 +57,17 @@ const deleteData = async (collections) => {
 // Prompt command
 console.log(process.argv);
 
-let collections;
+let documents;
 if (process.argv[3]) {
-    const collectionsArg = process.argv[3].replace('collections=', "");
-    collections = collectionsArg.split(',');
+    const documentsArg = process.argv[3].replace('documents=', "");
+    documents = documentsArg.split(',');
 } else {
-    collections = [];
+    documents = [];
 }
 
 if (process.argv[2] == '--import') {
     process.env.NODE_ENV = 'IMPORT_DATA';
-    importData(collections);
+    importData(documents);
 } if (process.argv[2] == '--delete') {
-    deleteData(collections);
+    deleteData(documents);
 }
