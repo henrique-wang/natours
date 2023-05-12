@@ -1,0 +1,1702 @@
+{
+	"info": {
+		"_postman_id": "d30ecea7-9ddb-4775-87af-0e6399c3b5ff",
+		"name": "natours",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tours",
+			"item": [
+				{
+					"name": "GET all tours",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours"
+							],
+							"query": [
+								{
+									"key": "difficulty",
+									"value": "easy",
+									"disabled": true
+								},
+								{
+									"key": "duration",
+									"value": "9",
+									"description": "[gte] [gt] [lte] [lt]number is valid",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-duration,price",
+									"description": "descending order: -duration ascending order: price",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "price[lte]",
+									"value": "1000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET tour-stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/tour-stats",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"tour-stats"
+							],
+							"query": [
+								{
+									"key": "difficulty",
+									"value": "easy",
+									"disabled": true
+								},
+								{
+									"key": "duration",
+									"value": "9",
+									"description": "[gte] [gt] [lte] [lt]number is valid",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-duration,price",
+									"description": "descending order: -duration ascending order: price",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET monthly plan by YEAR",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/monthly-plan/2021",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"monthly-plan",
+								"2021"
+							],
+							"query": [
+								{
+									"key": "difficulty",
+									"value": "easy",
+									"disabled": true
+								},
+								{
+									"key": "duration",
+									"value": "9",
+									"description": "[gte] [gt] [lte] [lt]number is valid",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-duration,price",
+									"description": "descending order: -duration ascending order: price",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET top 5 cheapest tours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/top-5-cheap",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"top-5-cheap"
+							],
+							"query": [
+								{
+									"key": "difficulty",
+									"value": "easy",
+									"disabled": true
+								},
+								{
+									"key": "duration",
+									"value": "9",
+									"description": "[gte] [gt] [lte] [lt]number is valid",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-duration,price",
+									"description": "descending order: -duration ascending order: price",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET tour by tourId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/5c88fa8cf4afda39709c2955",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"5c88fa8cf4afda39709c2955"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET tours distance from point",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/distances/:latlng/unit/:unit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"distances",
+								":latlng",
+								"unit",
+								":unit"
+							],
+							"query": [
+								{
+									"key": "difficulty",
+									"value": "easy",
+									"disabled": true
+								},
+								{
+									"key": "duration",
+									"value": "9",
+									"description": "[gte] [gt] [lte] [lt]number is valid",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-duration,price",
+									"description": "descending order: -duration ascending order: price",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "price[lte]",
+									"value": "1000",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "latlng",
+									"value": "34.1117,-118.1134"
+								},
+								{
+									"key": "unit",
+									"value": "mi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET tours by distance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/tours-within/:distance/center/:latlng/unit/:unit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"tours-within",
+								":distance",
+								"center",
+								":latlng",
+								"unit",
+								":unit"
+							],
+							"query": [
+								{
+									"key": "difficulty",
+									"value": "easy",
+									"disabled": true
+								},
+								{
+									"key": "duration",
+									"value": "9",
+									"description": "[gte] [gt] [lte] [lt]number is valid",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "price",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-duration,price",
+									"description": "descending order: -duration ascending order: price",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "price[lte]",
+									"value": "1000",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "distance",
+									"value": "400"
+								},
+								{
+									"key": "latlng",
+									"value": "34.1117,-118.1134"
+								},
+								{
+									"key": "unit",
+									"value": "mi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE new tour",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Test 1234\",\r\n        \"duration\": 5,\r\n        \"maxGroupSize\": 25,\r\n        \"difficulty\": \"easy\",\r\n        \"ratingsAverage\": 4.4,\r\n        \"ratingsQuantity\": 37,\r\n        \"price\": 397,\r\n        \"summary\": \"Breathtaking hike through the Canadian Banff National Park\",\r\n        \"description\": \"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\",\r\n        \"imageCover\": \"tour-1-cover.jpg\",\r\n        \"images\": [\r\n            \"tour-1-1.jpg\",\r\n            \"tour-1-2.jpg\",\r\n            \"tour-1-3.jpg\"\r\n        ],\r\n        \"startDates\": [\r\n            \"2021-04-25,10:00\",\r\n            \"2021-07-20,10:00\",\r\n            \"2021-10-05,10:00\"\r\n        ],\r\n        \"guides\": [\r\n            \"64468d08e9217b230a187058\",\r\n            \"64469465373d16c9b53ae2de\"\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE tour by tourId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ratingsAverage\": 10,\r\n    \"difficulty\": \"aaaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/64219ca60099aa1db54123a5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"64219ca60099aa1db54123a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE tour by tourId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/64468e992c9ef93909573aa0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"64468e992c9ef93909573aa0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "GET all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET user by userId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/100",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE user by userId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/100",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE user by userId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/100",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET logged use",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/get-logged-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"get-logged-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE logged user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/delete-logged-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"delete-logged-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE logged user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/update-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update logged user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDZjZGY0NTFlOWE5ZTVlMDY5ZDMzMyIsImlhdCI6MTY4MjQ0NDY4NCwiZXhwIjoxNjg5MzU2Njg0fQ.vyegVA61SQIFOfAAdxNQYY1r0MXExPw_Qay142tMgW4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"teste 14\",\r\n    \"photo\": \"aassadsdsadassda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/update-logged-user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update-logged-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"teste 14\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users/update-logged-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"update-logged-user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "176"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b0-0+vaSyByRUmPB/xlUWq0xLVDYEk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 25 Apr 2023 17:49:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"_id\": \"6446cdf451e9a9e5e069d333\",\n        \"name\": \"teste 14\",\n        \"email\": \"email121@io.com\",\n        \"role\": \"admin\",\n        \"__v\": 0,\n        \"passwordChangedAt\": \"2023-04-25T14:52:59.950Z\"\n    }\n}"
+						},
+						{
+							"name": "success photo upload",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/henri/OneDrive/Documentos/cursos/node_course/node-bootcamp/complete-node-bootcamp-master/4-natours/starter/dev-data/img/leo.jpg"
+										},
+										{
+											"key": "email",
+											"value": "user@io.com",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "test",
+											"type": "default",
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users/update-logged-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"update-logged-user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Embedder-Policy",
+									"value": "require-corp"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "98"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 May 2023 19:10:17 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1686522992"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "371"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"173-KUUstD+8HR0SDvMVRwj6bwERFng\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"user\": {\n        \"_id\": \"64525de268a271c8d2359162\",\n        \"name\": \"name 2\",\n        \"email\": \"user@io.com\",\n        \"role\": \"user\",\n        \"__v\": 0,\n        \"passwordChangedAt\": \"2023-05-08T16:40:23.690Z\",\n        \"photo\": \"user-64525de268a271c8d2359162-1683659421189.jpeg\",\n        \"passwordResetToken\": \"19a41f1d94e984eff7db007afa5e22ef99e1185b908c7bd5e21d46f9673218bd\",\n        \"passwordResetTokenExpires\": \"2023-05-09T14:35:16.067Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGMyMDQ1Y2Y2ZDI5Mjc2ZWNlZmQ3MiIsImlhdCI6MTY4MzA0OTQxNSwiZXhwIjoxNjg5OTYxNDE1fQ.0FCQgdbaUjR-iSrV5CnDyeLM4Ihdxqxny_SiwVsWvWc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"user\",\r\n    \"email\": \"user@io.com\",\r\n    \"password\": \"easyyyyy\",\r\n    \"passwordConfirm\": \"easyyyyy\",\r\n    \"role\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"\r",
+									"postman.setEnvironmentVariable('jwt_token', response.token);\r",
+									"postman.setEnvironmentVariable('user_email', response.data.user.email);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@io.com\",\r\n    \"password\": \"easyyyyy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login - NoSQL query",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": {\"$gt\": \"\"},\r\n    \"password\": \"easyyyyy1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Embedder-Policy",
+									"value": "require-corp"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "85"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Apr 2023 15:04:04 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1684193574"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-8ntM7AjK1xIlO1fkVC7+PWg3IDE\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"fail\",\n    \"message\": \"Invalid value ([object Object]) for email.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@io.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/forgot-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"easyyyyy1\",\r\n    \"passwordConfirm\": \"easyyyyy1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/reset-password/e1ed7dc1e416c20b9e753fb6a5474b9db5bee640f0a97f72aeb1e8429d9131b0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"reset-password",
+								"e1ed7dc1e416c20b9e753fb6a5474b9db5bee640f0a97f72aeb1e8429d9131b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDZjZGY0NTFlOWE5ZTVlMDY5ZDMzMyIsImlhdCI6MTY4MjQzNDM1MywiZXhwIjoxNjg5MzQ2MzUzfQ.ki3OxaoztFUXiYM8_Ngu4zB3ojddQsxq9wGPV0-jf_E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPassword\": \"easyyyyy1\",\r\n    \"password\": \"easyyyyy1\",\r\n    \"passwordConfirm\": \"easyyyyy1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users/update-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "CREATE new review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\": \"muito bom\",\r\n    \"rating\": 5,\r\n    \"tour\": \"5c88fa8cf4afda39709c295d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\": \"muito ok\",\r\n    \"rating\": 4.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/reviews/64525e4a68a271c8d2359198",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"64525e4a68a271c8d2359198"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE new review by tourId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\": \"so so\",\r\n    \"rating\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/5c88fa8cf4afda39709c2955/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"5c88fa8cf4afda39709c2955",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET review by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/reviews/644c2068cf6d29276ecefd77",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"644c2068cf6d29276ecefd77"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tour reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tours/5c88fa8cf4afda39709c2955/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"5c88fa8cf4afda39709c2955",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE review by reviewId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/reviews/64525e4a68a271c8d2359198",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"64525e4a68a271c8d2359198"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bookings",
+			"item": [
+				{
+					"name": "create booking by tourId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/bookings/checkout-session/:tourId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bookings",
+								"checkout-session",
+								":tourId"
+							],
+							"variable": [
+								{
+									"key": "tourId",
+									"value": "5c88fa8cf4afda39709c2955"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all bookings from loggedUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/bookings/logged-user-bookings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bookings",
+								"logged-user-bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET a booking from loggedUser by loggedUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/bookings/logged-user-bookings/:bookingId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bookings",
+								"logged-user-bookings",
+								":bookingId"
+							],
+							"variable": [
+								{
+									"key": "bookingId",
+									"value": "645bf04c5d27912084dbf717"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webhook - mock",
+			"item": [
+				{
+					"name": "POST checkout.session.expired",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"evt_1N6ZcpJtc5d5FVDtIHaKauu3\",\r\n    \"object\": \"event\",\r\n    \"api_version\": \"2022-11-15\",\r\n    \"created\": 1683812023,\r\n    \"data\": {\r\n    \"object\": {\r\n        \"id\": \"cs_test_a15VTryIgLWhgeuEv83w9XNnCGCFhylsxMHqLwBtfa9vfVrEFMmwdGFpPT\",\r\n        \"object\": \"checkout.session\",\r\n        \"after_expiration\": null,\r\n        \"allow_promotion_codes\": null,\r\n        \"amount_subtotal\": 39700,\r\n        \"amount_total\": {{booking_price}},\r\n        \"automatic_tax\": {\r\n        \"enabled\": false,\r\n        \"status\": null\r\n        },\r\n        \"billing_address_collection\": null,\r\n        \"cancel_url\": \"http://127.0.0.1:3001/tour/the-forest-hiker\",\r\n        \"client_reference_id\": \"{{booking_id}}\",\r\n        \"consent\": null,\r\n        \"consent_collection\": null,\r\n        \"created\": 1683725623,\r\n        \"currency\": \"usd\",\r\n        \"currency_conversion\": null,\r\n        \"custom_fields\": [],\r\n        \"custom_text\": {\r\n        \"shipping_address\": null,\r\n        \"submit\": null\r\n        },\r\n        \"customer\": null,\r\n        \"customer_creation\": \"if_required\",\r\n        \"customer_details\": {\r\n        \"address\": null,\r\n        \"email\": \"user@io.com\",\r\n        \"name\": null,\r\n        \"phone\": null,\r\n        \"tax_exempt\": \"none\",\r\n        \"tax_ids\": null\r\n        },\r\n        \"customer_email\": \"{{user_email}}\",\r\n        \"expires_at\": 1683812023,\r\n        \"invoice\": null,\r\n        \"invoice_creation\": {\r\n        \"enabled\": false,\r\n        \"invoice_data\": {\r\n            \"account_tax_ids\": null,\r\n            \"custom_fields\": null,\r\n            \"description\": null,\r\n            \"footer\": null,\r\n            \"metadata\": {},\r\n            \"rendering_options\": null\r\n        }\r\n        },\r\n        \"livemode\": false,\r\n        \"locale\": null,\r\n        \"mode\": \"payment\",\r\n        \"payment_intent\": null,\r\n        \"payment_link\": null,\r\n        \"payment_method_collection\": \"always\",\r\n        \"payment_method_options\": {},\r\n        \"payment_method_types\": [\r\n        \"card\"\r\n        ],\r\n        \"payment_status\": \"unpaid\",\r\n        \"phone_number_collection\": {\r\n        \"enabled\": false\r\n        },\r\n        \"recovered_from\": null,\r\n        \"setup_intent\": null,\r\n        \"shipping_address_collection\": null,\r\n        \"shipping_cost\": null,\r\n        \"shipping_details\": null,\r\n        \"shipping_options\": [],\r\n        \"status\": \"expired\",\r\n        \"submit_type\": null,\r\n        \"subscription\": null,\r\n        \"success_url\": \"http://127.0.0.1:3001/my-tours/?tour=5c88fa8cf4afda39709c2951\\u0026user=64525de268a271c8d2359162\\u0026price=397\",\r\n        \"total_details\": {\r\n        \"amount_discount\": 0,\r\n        \"amount_shipping\": 0,\r\n        \"amount_tax\": 0\r\n        },\r\n        \"url\": null\r\n    }\r\n    },\r\n    \"livemode\": false,\r\n    \"pending_webhooks\": 0,\r\n    \"request\": {\r\n    \"id\": null,\r\n    \"idempotency_key\": null\r\n    },\r\n    \"type\": \"checkout.session.expired\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/bookings/webhook-checkout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bookings",
+								"webhook-checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST checkout.session.async_payment_failed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"evt_1N6ZcpJtc5d5FVDtIHaKauu3\",\r\n    \"object\": \"event\",\r\n    \"api_version\": \"2022-11-15\",\r\n    \"created\": 1683812023,\r\n    \"data\": {\r\n    \"object\": {\r\n        \"id\": \"cs_test_a15VTryIgLWhgeuEv83w9XNnCGCFhylsxMHqLwBtfa9vfVrEFMmwdGFpPT\",\r\n        \"object\": \"checkout.session\",\r\n        \"after_expiration\": null,\r\n        \"allow_promotion_codes\": null,\r\n        \"amount_subtotal\": 39700,\r\n        \"amount_total\": {{booking_price}},\r\n        \"automatic_tax\": {\r\n        \"enabled\": false,\r\n        \"status\": null\r\n        },\r\n        \"billing_address_collection\": null,\r\n        \"cancel_url\": \"http://127.0.0.1:3001/tour/the-forest-hiker\",\r\n        \"client_reference_id\": \"{{booking_id}}\",\r\n        \"consent\": null,\r\n        \"consent_collection\": null,\r\n        \"created\": 1683725623,\r\n        \"currency\": \"usd\",\r\n        \"currency_conversion\": null,\r\n        \"custom_fields\": [],\r\n        \"custom_text\": {\r\n        \"shipping_address\": null,\r\n        \"submit\": null\r\n        },\r\n        \"customer\": null,\r\n        \"customer_creation\": \"if_required\",\r\n        \"customer_details\": {\r\n        \"address\": null,\r\n        \"email\": \"user@io.com\",\r\n        \"name\": null,\r\n        \"phone\": null,\r\n        \"tax_exempt\": \"none\",\r\n        \"tax_ids\": null\r\n        },\r\n        \"customer_email\": \"{{user_email}}\",\r\n        \"expires_at\": 1683812023,\r\n        \"invoice\": null,\r\n        \"invoice_creation\": {\r\n        \"enabled\": false,\r\n        \"invoice_data\": {\r\n            \"account_tax_ids\": null,\r\n            \"custom_fields\": null,\r\n            \"description\": null,\r\n            \"footer\": null,\r\n            \"metadata\": {},\r\n            \"rendering_options\": null\r\n        }\r\n        },\r\n        \"livemode\": false,\r\n        \"locale\": null,\r\n        \"mode\": \"payment\",\r\n        \"payment_intent\": null,\r\n        \"payment_link\": null,\r\n        \"payment_method_collection\": \"always\",\r\n        \"payment_method_options\": {},\r\n        \"payment_method_types\": [\r\n        \"card\"\r\n        ],\r\n        \"payment_status\": \"unpaid\",\r\n        \"phone_number_collection\": {\r\n        \"enabled\": false\r\n        },\r\n        \"recovered_from\": null,\r\n        \"setup_intent\": null,\r\n        \"shipping_address_collection\": null,\r\n        \"shipping_cost\": null,\r\n        \"shipping_details\": null,\r\n        \"shipping_options\": [],\r\n        \"status\": \"expired\",\r\n        \"submit_type\": null,\r\n        \"subscription\": null,\r\n        \"success_url\": \"http://127.0.0.1:3001/my-tours/?tour=5c88fa8cf4afda39709c2951\\u0026user=64525de268a271c8d2359162\\u0026price=397\",\r\n        \"total_details\": {\r\n        \"amount_discount\": 0,\r\n        \"amount_shipping\": 0,\r\n        \"amount_tax\": 0\r\n        },\r\n        \"url\": null\r\n    }\r\n    },\r\n    \"livemode\": false,\r\n    \"pending_webhooks\": 0,\r\n    \"request\": {\r\n    \"id\": null,\r\n    \"idempotency_key\": null\r\n    },\r\n    \"type\": \"checkout.session.async_payment_failed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/bookings/webhook-checkout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bookings",
+								"webhook-checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST checkout.session.async_payment_succeeded",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"evt_1N6ZcpJtc5d5FVDtIHaKauu3\",\r\n    \"object\": \"event\",\r\n    \"api_version\": \"2022-11-15\",\r\n    \"created\": 1683812023,\r\n    \"data\": {\r\n    \"object\": {\r\n        \"id\": \"cs_test_a15VTryIgLWhgeuEv83w9XNnCGCFhylsxMHqLwBtfa9vfVrEFMmwdGFpPT\",\r\n        \"object\": \"checkout.session\",\r\n        \"after_expiration\": null,\r\n        \"allow_promotion_codes\": null,\r\n        \"amount_subtotal\": 39700,\r\n        \"amount_total\": {{booking_price}},\r\n        \"automatic_tax\": {\r\n        \"enabled\": false,\r\n        \"status\": null\r\n        },\r\n        \"billing_address_collection\": null,\r\n        \"cancel_url\": \"http://127.0.0.1:3001/tour/the-forest-hiker\",\r\n        \"client_reference_id\": \"{{booking_id}}\",\r\n        \"consent\": null,\r\n        \"consent_collection\": null,\r\n        \"created\": 1683725623,\r\n        \"currency\": \"usd\",\r\n        \"currency_conversion\": null,\r\n        \"custom_fields\": [],\r\n        \"custom_text\": {\r\n        \"shipping_address\": null,\r\n        \"submit\": null\r\n        },\r\n        \"customer\": null,\r\n        \"customer_creation\": \"if_required\",\r\n        \"customer_details\": {\r\n        \"address\": null,\r\n        \"email\": \"user@io.com\",\r\n        \"name\": null,\r\n        \"phone\": null,\r\n        \"tax_exempt\": \"none\",\r\n        \"tax_ids\": null\r\n        },\r\n        \"customer_email\": \"{{user_email}}\",\r\n        \"expires_at\": 1683812023,\r\n        \"invoice\": null,\r\n        \"invoice_creation\": {\r\n        \"enabled\": false,\r\n        \"invoice_data\": {\r\n            \"account_tax_ids\": null,\r\n            \"custom_fields\": null,\r\n            \"description\": null,\r\n            \"footer\": null,\r\n            \"metadata\": {},\r\n            \"rendering_options\": null\r\n        }\r\n        },\r\n        \"livemode\": false,\r\n        \"locale\": null,\r\n        \"mode\": \"payment\",\r\n        \"payment_intent\": null,\r\n        \"payment_link\": null,\r\n        \"payment_method_collection\": \"always\",\r\n        \"payment_method_options\": {},\r\n        \"payment_method_types\": [\r\n        \"card\"\r\n        ],\r\n        \"payment_status\": \"unpaid\",\r\n        \"phone_number_collection\": {\r\n        \"enabled\": false\r\n        },\r\n        \"recovered_from\": null,\r\n        \"setup_intent\": null,\r\n        \"shipping_address_collection\": null,\r\n        \"shipping_cost\": null,\r\n        \"shipping_details\": null,\r\n        \"shipping_options\": [],\r\n        \"status\": \"expired\",\r\n        \"submit_type\": null,\r\n        \"subscription\": null,\r\n        \"success_url\": \"http://127.0.0.1:3001/my-tours/?tour=5c88fa8cf4afda39709c2951\\u0026user=64525de268a271c8d2359162\\u0026price=397\",\r\n        \"total_details\": {\r\n        \"amount_discount\": 0,\r\n        \"amount_shipping\": 0,\r\n        \"amount_tax\": 0\r\n        },\r\n        \"url\": null\r\n    }\r\n    },\r\n    \"livemode\": false,\r\n    \"pending_webhooks\": 0,\r\n    \"request\": {\r\n    \"id\": null,\r\n    \"idempotency_key\": null\r\n    },\r\n    \"type\": \"checkout.session.async_payment_succeeded\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/bookings/webhook-checkout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bookings",
+								"webhook-checkout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
